@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form | Crystal Clean Sydney</title>
+    <meta name="description" content="Book your cleaning service with Crystal Clean Sydney. Choose from various services, provide your contact details, and select your preferred date and time. Secure and easy booking process.">
+    <meta name="keywords" content="booking form, cleaning services, Crystal Clean Sydney, online booking, service scheduling, Sydney">
+    <style>
+        /* Ensure the container is properly positioned relative */
+        .booking-page.questions-content {
+            position: relative;
+        }
+
+        /* Target the credit card details section and make it moderately wider */
+        .booking-page.questions-content .container:last-of-type {
+            margin-top: 20px;
+            position: absolute;
+            bottom: 0px;
+            /* Adjust this value to push it further down */
+            left: 0;
+            /* Move it to the left edge */
+            transform: translateX(-650px);
+            /* Force it further to the left, less than before */
+            width: 630px !important;
+            /* Reduce the width to make it less wide */
+            max-width: none !important;
+            /* Remove the maximum width constraint */
+        }
+
+        /* Adjust the Complete Booking button to align with the new width */
+        #complete-booking-button {
+            width: 100%;
+            /* Ensure the button takes up the full width of its container */
+            max-width: none;
+            /* Remove any maximum width constraints */
+            padding: 15px 0;
+            /* Adjust the padding to make it look better */
+            margin-top: 10px;
+            /* Add some margin on top to separate it from other elements */
+        }
+
+        body.booking-page {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .booking-page .booking-section {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .booking-page .booking-form-container {
+            display: flex;
+            justify-content: space-between;
+            width: 70%;
+            max-width: 1000px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        .booking-page .form-content {
+            flex: 1.85;
+            margin-right: 20px;
+            padding-bottom: 180px;
+            /* Add this line to increase the bottom padding */
+        }
+
+
+
+        .booking-page .image-content {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .booking-page .booking-image {
+            width: 90%;
+            max-width: 300px;
+            height: auto;
+            max-height: 250px;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        .booking-page .pricing-summary {
+            text-align: left;
+            margin-top: 10px;
+            font-size: 1em;
+            color: black !important;
+        }
+
+        .booking-page .pricing-summary h3 {
+            margin: 0;
+            font-size: 1.3em;
+            color: black !important;
+            font-weight: bold !important;
+            /* This will make the text bold */
+            font-weight: 500 !important;
+            /* This will make the text semi-bold */
+        }
+
+        .booking-page .pricing-summary p {
+            margin: 5px 0;
+        }
+
+        .booking-page .booking-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        .booking-page h2 {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: black;
+            text-align: center;
+        }
+
+        .booking-page p {
+            font-size: 0.8em;
+            color: #555;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .booking-page form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .booking-page .form-group,
+        .booking-page .frequency-group,
+        .booking-page .entry-group,
+        .booking-page .parking-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .booking-page .form-group label,
+        .booking-page .frequency-group label,
+        .booking-page .entry-group label,
+        .booking-page .parking-group label {
+            margin-bottom: 5px;
+            color: black;
+            font-weight: normal;
+        }
+
+        .booking-page .form-group input,
+        .booking-page .form-group select,
+        .booking-page .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .booking-page .form-group input[type="checkbox"],
+        .booking-page .form-group input[type="radio"],
+        .booking-page .frequency-group input[type="radio"],
+        .booking-page .entry-group input[type="radio"],
+        .booking-page .parking-group input[type="radio"] {
+            margin: 0 10px 0 0;
+        }
+
+        .booking-page .radio-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            justify-content: flex-start;
+            text-align: left;
+            font-size: 0.73em;
+        }
+
+        .booking-page .radio-item label {
+            margin-bottom: 0;
+            color: black;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .booking-page .grid-item-full {
+            grid-column: span 2;
+        }
+
+        .booking-page textarea {
+            flex: 1 1 100%;
+            height: 100px;
+        }
+
+        .booking-page button {
+            padding: 10px;
+            background-color: rgb(201, 199, 192);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .booking-page button:hover {
+            background-color: rgb(191, 189, 182);
+        }
+
+        .booking-page .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.8em;
+        }
+
+        .booking-page .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .booking-page .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+            color: black;
+            text-align: left;
+        }
+
+        .booking-page .parking-note {
+            font-size: 0.8em;
+            color: #555;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .booking-page .questions-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #ccc;
+            padding-left: 20px;
+            text-align: left;
+            font-size: 0.9em;
+            margin-top: 0 !important;
+        }
+
+        .booking-page .question-item {
+            margin-bottom: 8px !important;
+            padding: 0 !important;
+            text-align: left;
+        }
+
+        .booking-page .question-item h3 {
+            margin: 0 !important;
+            /* Remove any margin around the h3 element */
+            padding: 0 !important;
+            /* Remove any padding around the h3 element */
+            font-size: 0.9em;
+            color: black;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        .booking-page .question-item .toggle-icon {
+            margin-right: 5px;
+        }
+
+        .booking-page .question-item p {
+            font-size: 0.8em;
+            color: #555;
+            display: none;
+            margin-top: 3px !important;
+            margin-bottom: 0px !important;
+            text-align: left;
+            padding: 0 !important;
+        }
+
+        .booking-page .question-item.active p {
+            display: block;
+            margin-top: 2px !important;
+        }
+
+
+        .booking-page .extras-group {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 20px !important;
+            margin-bottom: 30px !important;
+        }
+
+        .booking-page .extra-item {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            padding: 10px !important;
+            border: 2px solid #ccc !important;
+            border-radius: 8px !important;
+            text-align: center !important;
+            font-size: 0.7em !important;
+            cursor: pointer !important;
+            background-color: #fff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+            height: 150px !important;
+            position: relative !important;
+        }
+
+        .booking-page .extra-item img {
+            max-width: 50px !important;
+            margin-bottom: 10px !important;
+        }
+
+        .booking-page .extra-item label {
+            margin-bottom: 0 !important;
+            color: black !important;
+            font-weight: normal !important;
+        }
+
+        .booking-page .extra-item.highlighted {
+            border-color: #B7A08B !important;
+            background-color: transparent !important;
+        }
+
+        .booking-page .extra-item .counter-container {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: absolute !important;
+            bottom: 0px !important;
+            width: 100% !important;
+            padding: 0 10px !important;
+        }
+
+        .booking-page .extra-item .counter-buttons .increase,
+        .booking-page .extra-item .counter-buttons .decrease {
+            display: none !important;
+        }
+
+        .booking-page .extra-item.walls-interior-windows:hover .counter-buttons .increase,
+        .booking-page .extra-item.walls-interior-windows:hover .counter-buttons .decrease,
+        .booking-page .extra-item.walls-interior-windows .counter:not(:empty)~.counter-buttons .increase,
+        .booking-page .extra-item.walls-interior-windows .counter:not(:empty)~.counter-buttons .decrease {
+            display: flex !important;
+        }
+
+        .booking-page .extra-item .counter-buttons span {
+            cursor: pointer !important;
+            font-size: 18px !important;
+            color: white !important;
+            border-radius: 50% !important;
+            width: 20px !important;
+            height: 20px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: #DED0C1 !important;
+        }
+
+        .booking-page .extra-item .counter {
+            font-size: 14px !important;
+            position: absolute !important;
+            bottom: -10px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            border-radius: 6px !important;
+            padding: 2px 6px !important;
+            height: 20px !important;
+            width: 25px !important;
+            text-align: center !important;
+            background: #DED0C1 !important;
+            color: white !important;
+            display: none;
+        }
+
+        .booking-page .extra-item .counter:not(:empty) {
+            display: block;
+        }
+
+        #cleaning-plan-details,
+        #service-cost,
+        #total-price-container {
+            text-align: left;
+            font-size: 0.9em;
+            color: black;
+        }
+
+        #total-price-container span {
+            font-size: 0.9em;
+            color: black;
+            text-align: left !important;
+        }
+
+        #yui_3_17_2_1_1721228574982_440,
+        #yui_3_17_2_1_1721228574982_649,
+        #yui_3_17_2_1_1721228574982_664,
+        #yui_3_17_2_1_1721228574982_675,
+        #yui_3_17_2_1_1721228574982_686,
+        #yui_3_17_2_1_1721228574982_701,
+        #yui_3_17_2_1_1721228574982_712,
+        #yui_3_17_2_1_1721228574982_732,
+        #yui_3_17_2_1_1721228574982_747,
+        #yui_3_17_2_1_1721229401406_413 {
+            color: black !important;
+        }
+
+        @media (max-width: 600px) {
+
+            /* Ensure the main container is centered */
+            .booking-page .booking-form-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            /* Center the form content and questions content */
+            .booking-page .form-content,
+            .booking-page .questions-content {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                text-align: center;
+                box-sizing: border-box;
+                border-left: none;
+                /* Remove the vertical line */
+            }
+
+            /* Adjust the grid structure to avoid overlapping */
+            .booking-page .extras-group {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 20px 10px !important;
+                /* Adjust the gaps for even spacing */
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding-bottom: 20px;
+                /* Ensure there's padding at the bottom */
+            }
+
+            /* Adjust the height and spacing of each add-on box */
+            .booking-page .extras-group .extra-item {
+                height: auto !important;
+                /* Let the height adjust automatically */
+                padding: 20px 10px !important;
+                /* Add padding inside each item */
+                box-sizing: border-box !important;
+                /* Ensure padding is included in the calculation */
+                overflow: hidden !important;
+                /* Prevent content from overflowing */
+                margin: 0;
+                /* Remove auto margin */
+            }
+
+            /* Move the + button 10% to the left */
+            .booking-page .extras-group .extra-item .counter-container .increase {
+                left: 75% !important;
+                position: relative;
+                top: -90px;
+                /* Moves the button 20px higher */
+            }
+
+            /* Move the - button 15% to the left */
+            .booking-page .extras-group .extra-item .counter-container .decrease {
+                left: 5% !important;
+                position: relative;
+                top: -90px;
+                /* Moves the button 20px higher */
+            }
+
+            /* Move the counter up slightly */
+            .booking-page .extras-group .extra-item .counter {
+                top: -22px;
+                /* Move the counter up */
+            }
+
+            /* Hide questions in mobile view */
+            .booking-page .questions-content h2,
+            .booking-page .question-item {
+                display: none;
+            }
+
+            /* Move the image and related content up */
+            .booking-page .image-content {
+                margin-top: -170px;
+                width: 110%;
+                /* Set the width to make the image wider */
+                transform: translateX(-25px);
+                /* Move the image slightly to the left */
+            }
+
+            /* Move the entire pricing section down to make the "Cleaning Plan" visible */
+            .booking-page .pricing-summary {
+                margin-top: 10px;
+                /* Adjust this value to move the section down */
+                transform: translateX(-10px);
+                /* Move the section slightly to the left */
+            }
+
+            /* Target the credit card details section and make it wider */
+            .booking-page.questions-content .container:last-of-type {
+                margin-top: 20px;
+                position: relative;
+                /* Make sure it's placed in the natural flow */
+                bottom: 0px;
+                /* Keep it positioned at the bottom */
+                left: 0;
+                /* Align it with the left edge */
+                width: 100% !important;
+                /* Ensure it takes up the full width of the screen */
+                max-width: 100% !important;
+                /* Ensure it doesn't exceed the screen width */
+                text-align: center;
+                /* Center the text */
+                transform: translateX(-10px);
+                /* Move the section slightly to the left */
+            }
+
+            /* Ensure the Credit Card Details title is visible and aligned */
+            .booking-page .container:last-of-type h3 {
+                display: block;
+                /* Make sure the title is visible */
+                margin-bottom: 15px;
+                /* Add some space below the title */
+                text-align: center;
+                /* Center the title */
+                font-size: 1.2em;
+                /* Adjust the font size if needed */
+            }
+
+            .booking-page .container:last-of-type h2 {
+                display: block;
+                /* Ensure the header is displayed */
+                text-align: center;
+                /* Center the header */
+                margin-bottom: 15px;
+                /* Add space below the header */
+                color: black;
+                /* Set the color to black */
+                font-size: 1.2em;
+                /* Adjust the font size */
+            }
+
+            /* Ensure the Credit Card Details section is centered and visible */
+            .booking-page .container:last-of-type {
+                margin: 20px auto;
+                width: 100%;
+                text-align: center;
+                /* Center align */
+                position: static !important;
+                transform: translateX(-10px);
+                /* Move the section slightly to the left */
+            }
+
+            /* Manually move the Complete Booking button to the right and make it full width */
+            #complete-booking-button {
+                width: 100%;
+                /* Make the button full width */
+                max-width: none;
+                /* Remove any max-width constraints */
+                padding: 15px 0;
+                /* Adjust the padding */
+                margin: 20px 0;
+                display: block;
+                text-align: center;
+            }
+
+
+
+
+        }
+    </style>
+    <script src="https://js.stripe.com/v3/"></script> <!-- Include Stripe.js -->
+</head>
+
+<body class="booking-page">
+    <section class="booking-page booking-section">
+        <div class="booking-page booking-form-container">
+            <div class="booking-page form-content">
+                <div class="booking-page booking-container">
+                    <h2 id="yui_3_17_2_1_1721228574982_440">Contact Information</h2>
+                    <p>We'll use these details to follow up with you about your quote</p>
+                    <form id="payment-form"> <!-- Updated form ID for Stripe integration -->
+                        <div class="booking-page form-group">
+                            <div class="booking-page grid-item">
+                                <label for="first-name">First Name *</label>
+                                <input type="text" id="first-name" name="first-name" required>
+                            </div>
+                            <div class="booking-page grid-item">
+                                <label for="last-name">Last Name *</label>
+                                <input type="text" id="last-name" name="last-name" required>
+                            </div>
+                        </div>
+                        <div class="booking-page form-group">
+                            <div class="booking-page grid-item">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="booking-page grid-item">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="booking-page checkbox-group">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">I'm giving my consent to receive SMS and email notifications</label>
+                        </div>
+
+                        <h2 id="yui_3_17_2_1_1721228574982_649">Address</h2>
+                        <p>Where should we focus our cleaning efforts?</p>
+                        <div class="booking-page form-group">
+                            <div class="booking-page grid-item">
+                                <label for="street">Street *</label>
+                                <input type="text" id="street" name="street" required>
+                            </div>
+                            <div class="booking-page grid-item">
+                                <label for="apt">Apt #</label>
+                                <input type="text" id="apt" name="apt">
+                            </div>
+                        </div>
+                        <div class="booking-page form-group">
+                            <div class="booking-page grid-item">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="booking-page grid-item">
+                                <label for="postal-code">Postcode *</label>
+                                <input type="text" id="postal-code" name="postal-code" required>
+                            </div>
+                        </div>
+
+                        <h2 id="yui_3_17_2_1_1721228574982_664">Choose Your Services</h2>
+                        <p>Tell us about your home</p>
+                        <div class="booking-page form-group">
+                            <div class="booking-page grid-item">
+                                <label for="service">Service</label>
+                                <select id="service" name="service">
+                                    <option value="Studio or 1 Bedroom">Studio or 1 Bedroom</option>
+                                    <option value="2 Bedroom">2 Bedroom</option>
+                                    <option value="3 Bedroom">3 Bedroom</option>
+                                    <option value="4 Bedroom">4 Bedroom</option>
+                                    <option value="5 Bedroom">5 Bedroom</option>
+                                    <option value="6 Bedroom">6 Bedroom</option>
+                                    <option value="7 Bedroom">7 Bedroom</option>
+                                    <option value="8 Bedroom">8 Bedroom</option>
+                                    <option value="9 Bedroom">9 Bedroom</option>
+                                    <option value="10 Bedroom">10 Bedroom</option>
+                                    <option value="11 Bedroom">11 Bedroom</option>
+                                </select>
+                            </div>
+                            <div class="booking-page grid-item">
+                                <label for="bathroom">Bathroom</label>
+                                <select id="bathroom" name="bathroom">
+                                    <option value="1 Bathroom">1 Bathroom</option>
+                                    <option value="2 Bathroom">2 Bathroom</option>
+                                    <option value="3 Bathroom">3 Bathroom</option>
+                                    <option value="4 Bathroom">4 Bathroom</option>
+                                    <option value="5 Bathroom">5 Bathroom</option>
+                                    <option value="6 Bathroom">6 Bathroom</option>
+                                    <option value="7 Bathroom">7 Bathroom</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="booking-page form-group">
+                            <div class="booking-page grid-item">
+                                <label for="type-of-service">Type of Service</label>
+                                <select id="type-of-service" name="type-of-service">
+                                    <option value="General Cleaning">General Cleaning</option>
+                                    <option value="Deep Cleaning">Deep Cleaning</option>
+                                    <option value="End of Lease Cleaning">End of Lease Cleaning</option>
+                                    <option value="Organisation by the Hour">Organisation by the Hour</option>
+                                </select>
+                            </div>
+                            <div class="booking-page grid-item">
+                                <label for="storey">Storey</label>
+                                <select id="storey" name="storey">
+                                    <option value="Single storey home">Single storey home</option>
+                                    <option value="Double storey home">Double storey home</option>
+                                    <option value="Triple storey home">Triple storey home</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p>Note: If "Organisation by the Hour" is selected, please specify the number of hours in the
+                            Extras section.</p>
+                        <h2 id="yui_3_17_2_1_1721228574982_675">Select Extras</h2>
+                        <p>Add upgrades to your service</p>
+                        <div class="booking-page extras-group">
+                            <div class="booking-page extra-item walls-interior-windows" data-price="70">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b34888eef7173402cfac33/1723025544944/Carpet+Cleaning.png"
+                                    alt="Carpet Cleaning" loading="lazy">
+                                <label>Carpet Cleaning $70/room</label>
+                                <div class="counter-container">
+                                    <div class="counter" id="carpet-counter"></div>
+                                    <div class="counter-buttons">
+                                        <span class="decrease">-</span>
+                                        <span class="increase">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="booking-page extra-item walls-interior-windows" id="organisation-addon"
+                                data-price="80">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b3488dc79cee0b6e2e5891/1723025549738/Organisation+By+The+Hour.png"
+                                    alt="Organisation By the Hour" loading="lazy">
+                                <label>Organisation By the Hour $80/2 hours</label>
+                                <div class="counter-container">
+                                    <div class="counter" id="organisation-counter"></div>
+                                    <div class="counter-buttons">
+                                        <span class="decrease">-</span>
+                                        <span class="increase">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="booking-page extra-item" data-price="65">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345e7f190d24e77253799/1723024871898/Oven+Cleaning.png"
+                                    alt="Oven Cleaning" loading="lazy">
+                                <label>Oven Cleaning $65.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="35">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345e31616623d9cafbdd6/1723024867932/Refridgerator.png"
+                                    alt="Refrigerator Cleaning Empty" loading="lazy">
+                                <label>Refrigerator Cleaning Empty $35.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="50">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345e5aa512b5b2b6d2236/1723024869145/Refridgerator+Full+Cleaning.png"
+                                    alt="Refrigerator Cleaning Full" loading="lazy">
+                                <label>Refrigerator Cleaning Full $50.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="35">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345aacfa3d63672c6e6b0/1723024810170/Dish+Washer+Cleaning.png"
+                                    alt="Dishwasher Cleaning" loading="lazy">
+                                <label>Dishwasher Cleaning $35.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="65">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345741616623d9cafa78b/1723024756550/Cupboard+Empty+Cleaning.png"
+                                    alt="Inside Cupboards Cleaning Empty" loading="lazy">
+                                <label>Inside Cupboards Empty $65.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="60">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345f6341bc358818bfe4b/1723024886978/Window+Cleaning.png"
+                                    alt="Window Cleaning" loading="lazy">
+                                <label>Window Cleaning $60.00</label>
+                            </div>
+                            <div class="booking-page extra-item walls-interior-windows" data-price="30">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345d84be75066e5b57f9a/1723024856913/Sliding+Door+Cleaning.png"
+                                    alt="Sliding Door Window Cleaning" loading="lazy">
+                                <label>Sliding Door Window $30/set</label>
+                                <div class="counter-container">
+                                    <div class="counter" id="sliding-door-counter"></div>
+                                    <div class="counter-buttons">
+                                        <span class="decrease">-</span>
+                                        <span class="increase">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="booking-page extra-item" data-price="60">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345a76f0a5426e8a7fcf9/1723024807388/Blind+Cleaning.png"
+                                    alt="Blind Cleaning" loading="lazy">
+                                <label>Blind Cleaning $60.00</label>
+                            </div>
+                            <div class="booking-page extra-item walls-interior-windows" data-price="70">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345f5a7c84a4142c0a5f6/1723024885961/Wall+Washing.png"
+                                    alt="Wall Washing" loading="lazy">
+                                <label>Wall Washing $70/room</label>
+                                <div class="counter-container">
+                                    <div class="counter" id="wall-washing-counter"></div>
+                                    <div class="counter-buttons">
+                                        <span class="decrease">-</span>
+                                        <span class="increase">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="booking-page extra-item" data-price="40">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345b26f0a5426e8a7fe51/1723024818522/High+Dusting.png"
+                                    alt="High Dusting" loading="lazy">
+                                <label>High Dusting $40.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="35">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345b2fabc99253955cedd/1723024818492/Garage+Cleaning.png"
+                                    alt="Garage Cleaning" loading="lazy">
+                                <label>Garage Cleaning $35.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="35">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345748706157585719b55/1723024756749/Balcony+Cleaning+Small.png"
+                                    alt="Balcony Cleaning Small" loading="lazy">
+                                <label>Balcony Cleaning Small $35.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="65">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b34574543ce308c7e27e0b/1723024756753/Balcony+Cleaning+Large.png"
+                                    alt="Balcony Cleaning Large" loading="lazy">
+                                <label>Balcony Cleaning Large $65.00</label>
+                            </div>
+                            <div class="booking-page extra-item walls-interior-windows" data-price="10">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345749ae2157f850c788a/1723024756405/Cleaning+Sheets.png"
+                                    alt="Change Sheets" loading="lazy">
+                                <label>Change Sheets $10/bed</label>
+                                <div class="counter-container">
+                                    <div class="counter" id="change-sheets-counter"></div>
+                                    <div class="counter-buttons">
+                                        <span class="decrease">-</span>
+                                        <span class="increase">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="booking-page extra-item" data-price="35">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345e155d16c02545c508e/1723024865903/Shed+Cleaning.png"
+                                    alt="Shed/Pool House Cleaning" loading="lazy">
+                                <label>Shed/Pool House $35.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="75">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345b2f3b8b50fb6576a18/1723024818484/Next+Day+Booking.png"
+                                    alt="Next Day Booking Fee" loading="lazy">
+                                <label>Next Day Booking Fee $75.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="25">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b345b2168d21631f11b1f6/1723024818663/I+Have+Pets.png"
+                                    alt="I Have Pets Fee" loading="lazy">
+                                <label>I Have Pets $25.00</label>
+                            </div>
+                            <div class="booking-page extra-item" data-price="20">
+                                <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b348304db36d266a5c9d17/1723025456552/Street+Parking.png"
+                                    alt="Street Parking Fee" loading="lazy">
+                                <label>Street Parking Fee $20.00</label>
+                            </div>
+                        </div>
+
+                        <h2 id="yui_3_17_2_1_1721228574982_675">When would you like us to come?</h2>
+                        <p>The day and time that suits you best</p>
+                        <div class="booking-page form-group">
+                            <div class="booking-page grid-item">
+                                <label for="day">Pick a day</label>
+                                <input type="date" id="day" name="day">
+                            </div>
+                            <div class="booking-page grid-item">
+                                <label for="time">Pick a time</label>
+                                <select id="time" name="time">
+                                    <option value="07:00">7:00 AM</option>
+                                    <option value="07:30">7:30 AM</option>
+                                    <option value="08:00">8:00 AM</option>
+                                    <option value="08:30">8:30 AM</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="09:30">9:30 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="10:30">10:30 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="14:30">2:30 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="15:30">3:30 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="16:30">4:30 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <h2 id="yui_3_17_2_1_1721228574982_686">How Often?</h2>
+                        <p>Select how often you'd like the service</p>
+                        <div class="booking-page frequency-group">
+                            <div class="booking-page radio-item">
+                                <input type="radio" id="fortnightly" name="frequency" value="Fortnightly">
+                                <label for="fortnightly">Fortnightly (Save 10%)</label>
+                            </div>
+                            <div class="booking-page radio-item">
+                                <input type="radio" id="monthly" name="frequency" value="Monthly">
+                                <label for="monthly">Monthly (Save 5%)</label>
+                            </div>
+                            <div class="booking-page radio-item">
+                                <input type="radio" id="weekly" name="frequency" value="Weekly">
+                                <label for="weekly">Weekly (Save 15%)</label>
+                            </div>
+                            <div class="booking-page radio-item">
+                                <input type="radio" id="one-time" name="frequency" value="One-time">
+                                <label for="one-time">One-time service</label>
+                            </div>
+                        </div>
+
+                        <h2 id="yui_3_17_2_1_1721228574982_701">Accessibility</h2>
+                        <p>How will the cleaners enter your home?</p>
+                        <div class="booking-page entry-group">
+                            <div class="booking-page radio-item">
+                                <input type="radio" id="home-entry" name="entry" value="home">
+                                <label for="home-entry">I'll be home to let them in</label>
+                            </div>
+                            <div class="booking-page radio-item">
+                                <input type="radio" id="key-entry" name="entry" value="key">
+                                <label for="key-entry">I'll leave a key</label>
+                            </div>
+                            <div class="booking-page radio-item">
+                                <input type="radio" id="code-entry" name="entry" value="code">
+                                <label for="code-entry">I'll provide an access code</label>
+                            </div>
+                            <div class="booking-page radio-item">
+                                <input type="radio" id="other-entry" name="entry" value="other">
+                                <label for="other-entry">Other </label>
+                            </div>
+                        </div>
+
+                        <h2 id="yui_3_17_2_1_1721228574982_732">Any information you'd like to share?</h2>
+                        <p>Provide us with more details.</p>
+                        <div class="booking-page form-group">
+                            <div class="booking-page grid-item-full">
+                                <textarea id="notes" name="notes"
+                                    placeholder="Property access information, your dog's name, etc"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="booking-page questions-content">
+                <h2 id="yui_3_17_2_1_1721229401406_413">Questions?</h2>
+                <div class="booking-page question-item">
+                    <h3><span class="toggle-icon">+</span> What is included in a cleaning service?</h3>
+                    <p>We offer standard cleaning, deep cleaning, move-in and move-out cleaning, and hourly organization
+                        services. For more details, see our <a href="/faq">FAQ page</a>.</p>
+                </div>
+                <div class="booking-page question-item">
+                    <h3><span class="toggle-icon">+</span> Who is cleaning my home?</h3>
+                    <p>Our team of professional cleaners is trained, vetted, and dedicated to providing the highest
+                        quality service. We ensure your home is in good hands with our trustworthy and experienced
+                        staff.</p>
+                </div>
+                <div class="booking-page question-item">
+                    <h3><span class="toggle-icon">+</span> Can I skip or reschedule bookings?</h3>
+                    <p>Any changes to your booking must be made at least 24 hours before the scheduled service. Please
+                        contact us at info.crystalcleansyd@gmail.com for any changes.</p>
+                </div>
+                <div class="booking-page question-item">
+                    <h3><span class="toggle-icon">+</span> What is your cancellation policy?</h3>
+                    <p>You may cancel your booking up to 24 hours before the scheduled service for a full refund.
+                        Cancellations made less than 24 hours in advance may incur a $50 cancellation fee.</p>
+                </div>
+                <div class="booking-page image-content">
+                    <img src="https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66b3461337a2ce52082ab83f/1723024918365/Book+Now+3.jpg"
+                        class="booking-image" alt="Book Now" loading="lazy">
+                </div>
+                <!-- Discount Code Input Field -->
+                <div class="discount-code-container">
+                    <input type="text" id="discount-code" class="discount-code-input" placeholder="Discount Code">
+                    <button type="button" class="apply-discount-button">Apply Code</button>
+                </div>
+                <div class="pricing-summary">
+                    <div class="pricing-summary">
+                        <h3>Cleaning Plan</h3>
+                        <p id="cleaning-plan-details">Studio or 1 bedroom, 1 bathroom, Single storey home</p>
+                        <p id="service-cost" style="font-weight: 500;">General Cleaning: $130</p>
+                        <h3>Selected Extras: <span id="extras-total" style="font-size: 0.8em;">$0.00</span></h3>
+                        <ul id="selected-extras" style="font-size: 0.8em;"></ul>
+                        <p id="frequency-discount"></p>
+                        <div id="discount-amount"></div>
+                        <h3 id="total-price-container">Total: $<span id="total">130.00</span>
+                            <span style="font-size: 0.65em; color: black; margin-left: 5px;">(including GST)</span>
+                        </h3>
+                    </div>
+
+                    <!-- Credit Card Details -->
+                    <div class="container">
+                        <h2 id="yui_3_17_2_1_1721228574982_747">Credit Card Details</h2>
+                        <p>Enter your card information below. You will be charged after service has been rendered.</p>
+                        <div id="card-element">
+                            <!-- A Stripe Element will be inserted here. -->
+                        </div>
+                        <div id="card-errors" role="alert"></div> <!-- Display card errors -->
+                        <button type="submit" id="complete-booking-button">Complete Booking</button>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+
+            // Extract query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const firstName = urlParams.get('first-name');
+            const lastName = urlParams.get('last-name');
+            const email = urlParams.get('email');
+            const service = urlParams.get('service');
+            const bathroom = urlParams.get('bathroom');
+            const frequency = urlParams.get('frequency');
+
+            // Set form values if query parameters are present
+            if (firstName) document.getElementById('first-name').value = firstName;
+            if (lastName) document.getElementById('last-name').value = lastName;
+            if (email) document.getElementById('email').value = email;
+            if (service) document.getElementById('service').value = service;
+            if (bathroom) document.getElementById('bathroom').value = bathroom;
+            if (frequency) {
+                document.querySelector(`input[name="frequency"][value="${frequency}"]`).checked = true;
+            }
+
+            const servicePrices = {
+                "Studio or 1 Bedroom": 0,
+                "2 Bedroom": 25,
+                "3 Bedroom": 50,
+                "4 Bedroom": 75,
+                "5 Bedroom": 100,
+                "6 Bedroom": 125,
+                "7 Bedroom": 150,
+                "8 Bedroom": 175,
+                "9 Bedroom": 200,
+                "10 Bedroom": 225,
+                "11 Bedroom": 250
+            };
+
+            const endOfLeaseServicePrices = {
+                "Studio or 1 Bedroom": 0,
+                "2 Bedroom": 50,
+                "3 Bedroom": 100,
+                "4 Bedroom": 150,
+                "5 Bedroom": 200,
+                "6 Bedroom": 250,
+                "7 Bedroom": 300,
+                "8 Bedroom": 350,
+                "9 Bedroom": 400,
+                "10 Bedroom": 450,
+                "11 Bedroom": 500
+            };
+
+            const bathroomPrices = {
+                "1 Bathroom": 0,
+                "2 Bathroom": 25,
+                "3 Bathroom": 50,
+                "4 Bathroom": 75,
+                "5 Bathroom": 90,
+                "6 Bathroom": 115,
+                "7 Bathroom": 130
+            };
+
+            const storeyPrices = {
+                "Single storey home": 0,
+                "Double storey home": 35,
+                "Triple storey home": 70
+            };
+
+            const typeOfServicePrices = {
+                "General Cleaning": 130,
+                "Deep Cleaning": 220,
+                "End of Lease Cleaning": 400,
+                "Organisation by the Hour": 0
+            };
+
+            const frequencyDiscounts = {
+                "Weekly": 0.15,
+                "Fortnightly": 0.10,
+                "Monthly": 0.05,
+                "One-time": 0
+            };
+
+            const deepCleaningExtras = [
+                "High Dusting",
+                "I Have Pets"
+            ];
+
+            const endOfLeaseExtras = [
+                "Oven Cleaning",
+                "Refrigerator Cleaning Full",
+                "Dishwasher Cleaning",
+                "Inside Cupboards Empty",
+                "Window Cleaning",
+                "Blind Cleaning",
+                "High Dusting",
+                "I Have Pets"
+            ];
+
+            const organisationByTheHourExtras = [
+                "Oven Cleaning",
+                "Refrigerator Cleaning Empty",
+                "Refrigerator Cleaning Full",
+                "Dishwasher Cleaning",
+                "Inside Cupboards Empty",
+                "Window Cleaning",
+                "Sliding Door Window",
+                "Blind Cleaning",
+                "High Dusting",
+                "Garage Cleaning",
+                "Balcony Cleaning Small",
+                "Balcony Cleaning Large",
+                "Change Sheets",
+                "Shed/Pool House",
+                "I Have Pets",
+                "Organisation By the Hour $80/2 hours"
+            ];
+
+            const freeAddOnsForDeepCleaning = [
+                "High Dusting",
+                "I Have Pets"
+            ];
+
+            const freeAddOnsForEndOfLeaseCleaning = [
+                "Oven Cleaning",
+                "Refrigerator Cleaning Full",
+                "Dishwasher Cleaning",
+                "Inside Cupboards Empty",
+                "Window Cleaning",
+                "Blind Cleaning",
+                "High Dusting",
+                "I Have Pets"
+            ];
+
+            const freeAddOnsForOrganisationByTheHour = [
+                "Oven Cleaning",
+                "Refrigerator Cleaning Empty",
+                "Refrigerator Cleaning Full",
+                "Dishwasher Cleaning",
+                "Inside Cupboards Empty",
+                "Window Cleaning",
+                "Sliding Door Window",
+                "Blind Cleaning",
+                "High Dusting",
+                "Garage Cleaning",
+                "Balcony Cleaning Small",
+                "Balcony Cleaning Large",
+                "Change Sheets",
+                "Shed/Pool House",
+                "I Have Pets"
+            ];
+
+            let discountCode = '';
+            let discountAmount = 0;
+
+            const calculateTotal = () => {
+                let total = 0;
+                let extrasTotal = 0; // Total for selected extras
+
+                const serviceElement = document.getElementById('service');
+                const bathroomElement = document.getElementById('bathroom');
+                const storeyElement = document.getElementById('storey');
+                const typeOfServiceElement = document.getElementById('type-of-service');
+
+                if (!serviceElement || !bathroomElement || !storeyElement || !typeOfServiceElement) {
+                    console.error('One or more elements are not found.');
+                    return;
+                }
+
+                const service = serviceElement.value;
+                const bathroom = bathroomElement.value;
+                const storey = storeyElement.value;
+                const typeOfService = typeOfServiceElement.value;
+
+                if (typeOfService === "End of Lease Cleaning") {
+                    total += endOfLeaseServicePrices[service] || 0;
+                } else {
+                    total += servicePrices[service] || 0;
+                }
+
+                total += bathroomPrices[bathroom] || 0;
+                total += storeyPrices[storey] || 0;
+                total += typeOfServicePrices[typeOfService] || 0;
+
+                document.getElementById('cleaning-plan-details').textContent = `${service}, ${bathroom}, ${storey}`;
+                document.getElementById('service-cost').textContent = `${typeOfService}: $${typeOfServicePrices[typeOfService]}`;
+
+                console.log('Base total:', total);
+
+                const selectedExtras = document.querySelectorAll('.extra-item.highlighted');
+                const extrasList = document.getElementById('selected-extras');
+                extrasList.innerHTML = '';
+
+                const extraCounts = {};
+
+                selectedExtras.forEach(extra => {
+                    const price = parseFloat(extra.getAttribute('data-price'));
+                    const label = extra.querySelector('label').textContent.split(' $')[0];
+                    const counter = extra.querySelector('.counter');
+                    const count = counter ? parseInt(counter.textContent) || 1 : 1;
+
+                    if (extraCounts[label]) {
+                        extraCounts[label].count += count;
+                    } else {
+                        extraCounts[label] = { price, count };
+                    }
+                });
+
+                for (let label in extraCounts) {
+                    const item = extraCounts[label];
+                    let itemTotal = item.price * item.count;
+
+                    if (typeOfService === "Deep Cleaning" && freeAddOnsForDeepCleaning.includes(label)) {
+                        itemTotal = 0; // Make it free
+                    } else if (typeOfService === "End of Lease Cleaning" && freeAddOnsForEndOfLeaseCleaning.includes(label)) {
+                        itemTotal = 0; // Make it free
+                    } else if (typeOfService === "Organisation by the Hour" && freeAddOnsForOrganisationByTheHour.includes(label)) {
+                        itemTotal = 0; // Make it free
+                    }
+
+                    total += itemTotal;
+                    extrasTotal += itemTotal; // Add to extras total
+
+                    const listItem = document.createElement('li');
+                    if (item.count > 1) {
+                        listItem.textContent = `${label} x${item.count}`;
+                    } else {
+                        listItem.textContent = `${label}`;
+                    }
+                    extrasList.appendChild(listItem);
+                }
+
+                // Update the displayed total for selected extras
+                document.getElementById('extras-total').textContent = `$${extrasTotal.toFixed(2)}`;
+
+                console.log('Total after extras:', total);
+
+                const frequencyDiscount = document.querySelector('input[name="frequency"]:checked');
+                if (frequencyDiscount) {
+                    const discount = frequencyDiscounts[frequencyDiscount.value];
+                    const frequencyDiscountAmount = total * discount;
+                    total -= frequencyDiscountAmount;
+                    document.getElementById('frequency-discount').textContent = `Frequency Discount: -$${frequencyDiscountAmount.toFixed(2)}`;
+                } else {
+                    document.getElementById('frequency-discount').textContent = '';
+                }
+
+                // Apply discount code
+                if (discountCode === 'WELCOME10%') {
+                    discountAmount = total * 0.10;
+                    document.getElementById('discount-amount').textContent = `Discount (10%): -$${discountAmount.toFixed(2)}`;
+                } else {
+                    discountAmount = 0;
+                    document.getElementById('discount-amount').textContent = '';
+                }
+
+                total -= discountAmount;
+
+                document.getElementById('total').textContent = total.toFixed(2);
+            };
+
+            const applyDiscountCode = () => {
+                console.log('Apply Code button clicked');
+                const inputCode = document.querySelector('.discount-code-input').value.trim().toUpperCase();
+                console.log('Entered Discount Code:', inputCode);
+                if (inputCode === 'WELCOME10%') {
+                    discountCode = inputCode;
+                    alert('Discount code applied successfully!');
+                } else {
+                    discountCode = '';  // Clear the code if it doesn't match
+                    alert('Invalid discount code');
+                }
+                calculateTotal();
+            };
+
+            const resetAllAddOns = () => {
+                document.querySelectorAll('.extra-item').forEach(extra => {
+                    extra.classList.remove('highlighted');
+                    extra.classList.remove('always-visible');
+                    extra.style.pointerEvents = 'auto';
+                    const counter = extra.querySelector('.counter');
+                    if (counter) counter.textContent = '';
+                });
+            };
+
+            const handleTypeOfServiceChange = () => {
+                const typeOfServiceElement = document.getElementById('type-of-service');
+                const typeOfService = typeOfServiceElement.value;
+
+                resetAllAddOns(); // Reset all add-ons to be selectable
+
+                document.querySelectorAll('.extra-item').forEach(extra => {
+                    const label = extra.querySelector('label').textContent.split(' $')[0];
+                    const counter = extra.querySelector('.counter');
+                    const increaseButton = extra.querySelector('.increase');
+                    const decreaseButton = extra.querySelector('.decrease');
+
+                    if (typeOfService === "Deep Cleaning") {
+                        if (deepCleaningExtras.includes(label)) {
+                            extra.classList.add('highlighted');
+                            extra.style.pointerEvents = 'none';
+                        }
+                    } else if (typeOfService === "End of Lease Cleaning") {
+                        if (endOfLeaseExtras.includes(label)) {
+                            extra.classList.add('highlighted');
+                            extra.style.pointerEvents = 'none';
+                        }
+                    } else if (typeOfService === "Organisation by the Hour") {
+                        if (label === "Organisation By the Hour $80/2 hours") {
+                            extra.classList.add('highlighted');
+                            extra.classList.add('always-visible');
+                            counter.textContent = '1';
+                            increaseButton.style.display = 'inline-block';
+                            decreaseButton.style.display = 'inline-block';
+                            decreaseButton.style.pointerEvents = 'none';
+
+                            if (!document.getElementById('select-hours-note')) {
+                                const note = document.createElement('div');
+                                note.id = 'select-hours-note';
+                                note.textContent = 'Please Select Hours';
+                                note.style.color = 'red';
+                                extra.appendChild(note);
+                            }
+                        } else if (organisationByTheHourExtras.includes(label)) {
+                            extra.classList.add('highlighted');
+                            extra.style.pointerEvents = 'none';
+                        }
+                    }
+                });
+
+                calculateTotal();
+            };
+
+            const setupEventListeners = () => {
+                document.querySelectorAll('select, input[name="frequency"]').forEach(element => {
+                    element.addEventListener('change', calculateTotal);
+                });
+
+                document.querySelectorAll('.extra-item').forEach(extra => {
+                    if (extra.classList.contains('walls-interior-windows')) {
+                        const counter = extra.querySelector('.counter');
+                        let count = parseInt(counter.textContent) || 0;
+
+                        const increaseButton = extra.querySelector('.increase');
+                        const decreaseButton = extra.querySelector('.decrease');
+
+                        increaseButton.addEventListener('click', (event) => {
+                            event.stopPropagation();
+                            count += 1;
+                            counter.textContent = count;
+                            extra.classList.add('highlighted');
+                            decreaseButton.style.pointerEvents = count > 0 ? 'auto' : 'none';
+                            calculateTotal();
+                        });
+
+                        decreaseButton.addEventListener('click', (event) => {
+                            event.stopPropagation();
+                            if (count > 0) {
+                                count -= 1;
+                                counter.textContent = count;
+                                if (count === 0) {
+                                    extra.classList.remove('highlighted');
+                                    counter.textContent = "";
+                                }
+                                decreaseButton.style.pointerEvents = count > 0 ? 'auto' : 'none';
+                                calculateTotal();
+                            }
+                        });
+                    } else {
+                        extra.addEventListener('click', () => {
+                            extra.classList.toggle('highlighted');
+                            calculateTotal();
+                        });
+                    }
+                });
+
+                document.getElementById('type-of-service').addEventListener('change', handleTypeOfServiceChange);
+                document.querySelector('.apply-discount-button').addEventListener('click', applyDiscountCode);
+                document.getElementById('complete-booking-button').addEventListener('click', function (event) {
+                    event.preventDefault();
+                    console.log('Complete Booking button clicked');
+
+                    // Custom validation for "Organisation by the Hour" service
+                    const typeOfService = document.getElementById('type-of-service').value;
+                    const organisationAddon = document.querySelector('.extra-item[data-price="80"]');
+                    const organisationCounter = organisationAddon.querySelector('.counter');
+
+                    if (typeOfService === 'Organisation by the Hour' && (!organisationAddon.classList.contains('highlighted') || !organisationCounter.textContent || parseInt(organisationCounter.textContent) < 1)) {
+                        alert('Please select "Organisation by the Hour $80/2 hours" quantity.');
+                        return; // Prevent form submission
+                    }
+
+                    stripe.createToken(card).then(function (result) {
+                        if (result.error) {
+                            var errorElement = document.getElementById('card-errors');
+                            errorElement.textContent = result.error.message;
+                        } else {
+                            // Send the token to your server
+                            stripeTokenHandler(result.token);
+                        }
+                    });
+                });
+            };
+
+            setupEventListeners();
+
+            // Set initial values
+            if (service) {
+                document.getElementById('service').value = service;
+            } else {
+                document.getElementById('service').value = "Studio or 1 Bedroom";
+            }
+            if (bathroom) {
+                document.getElementById('bathroom').value = bathroom;
+            } else {
+                document.getElementById('bathroom').value = "1 Bathroom";
+            }
+            document.getElementById('storey').value = "Single storey home";
+            document.getElementById('type-of-service').value = "General Cleaning";
+            calculateTotal();
+        });
+
+        // Toggle FAQ dropdowns
+        document.querySelectorAll('.question-item h3').forEach(questionHeader => {
+            questionHeader.addEventListener('click', () => {
+                const icon = questionHeader.querySelector('.toggle-icon');
+                const content = questionHeader.nextElementSibling;
+
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    icon.textContent = '+';
+                } else {
+                    content.style.display = 'block';
+                    icon.textContent = '-';
+                }
+            });
+        });
+
+        // Stripe setup
+        var stripe = Stripe('pk_test_51Pg0xxIpCrzhTk3noCRQZEZezn6SM20Ihj5XxT9edh6t13AdAdc8R2DYGnVm2eq9CBW8q5831OefWCwQsO97XLzs00cjIlsJPV'); // Replace with your Stripe public key
+        var elements = stripe.elements();
+        var style = {
+            base: {
+                color: '#32325d',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+
+        // Create a card element without the ZIP/postal code field
+        var card = elements.create('card', {
+            style: style,
+            hidePostalCode: true
+        });
+
+        card.mount('#card-element');
+
+        card.addEventListener('change', function (event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Custom validation for "Organisation by the Hour" service
+            const typeOfService = document.getElementById('type-of-service').value;
+            const organisationAddon = document.querySelector('.extra-item[data-price="80"]');
+            const organisationCounter = organisationAddon.querySelector('.counter');
+
+            if (typeOfService === 'Organisation by the Hour' && (!organisationAddon.classList.contains('highlighted') || !organisationCounter.textContent || parseInt(organisationCounter.textContent) < 1)) {
+                alert('Please select "Organisation by the Hour $80/2 hours" quantity.');
+                return; // Prevent form submission
+            }
+
+            stripe.createToken(card).then(function (result) {
+                if (result.error) {
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Send the token to your server
+                    stripeTokenHandler(result.token);
+                }
+            });
+        });
+
+        function stripeTokenHandler(token) {
+            var form = document.getElementById('payment-form');
+            var hiddenInput = document.createElement('input');
+            hiddenInput.setAttribute('type', 'hidden');
+            hiddenInput.setAttribute('name', 'stripeToken');
+            hiddenInput.setAttribute('value', token.id);
+            form.appendChild(hiddenInput);
+
+            form.submit();
+        }
+
+        // Assuming you already have the dateInput variable
+        var dateInput = document.getElementById('day');
+
+        // Get today's date and set the minimum selectable date to be the next day
+        var today = new Date();
+        today.setDate(today.getDate() + 1); // Move to the next day
+
+        var yyyy = today.getFullYear();
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        var dd = String(today.getDate()).padStart(2, '0');
+
+        var minDate = yyyy + '-' + mm + '-' + dd; // Format the date as YYYY-MM-DD
+
+        // Set the minimum date attribute for the input element
+        dateInput.setAttribute('min', minDate);
+
+        // Blocked dates array
+        var blockedDates = [
+            '2024-08-25', // Example blocked date
+        ];
+
+        // Function to check if the selected date is blocked
+        dateInput.addEventListener('input', function () {
+            var selectedDate = dateInput.value;
+            if (blockedDates.includes(selectedDate)) {
+                alert('This date is not available for booking.');
+                dateInput.value = ''; // Clear the input value
+            }
+        });
+
+    </script>
+</body>
+
+</html>

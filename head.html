@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal Clean Sydney</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var section = document.getElementById("block-yui_3_17_2_1_1720516738964_3057");
+            if (section) {
+                var img = new Image();
+                img.src = 'https://static1.squarespace.com/static/6682192d1022a0098a1c29d9/t/66ba17f0d38adb6346a8afc3/1723471857359/First+Class+Cleaning+Home.jpg';
+                img.onload = function () {
+                    section.style.backgroundImage = 'url(' + img.src + ')';
+                };
+                img.onerror = function () {
+                    console.error('Image failed to load.');
+                };
+            } else {
+                console.error('Element with specified ID not found.');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <header class="header-area">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <h1>CRYSTAL CLEAN SYDNEY</h1>
+                </a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#services">SERVICES</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#commercial">COMMERCIAL</a></li>
+                        <li><a href="#quotes">QUOTES</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                        <li class="book-now"><a href="#book-now">BOOK NOW!</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="menu-icon">
+                <a href="#" class="menus">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+                <a href="#" class="close-btn" style="display: none;">
+                    <i class="fa-solid fa-times"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="new-service-area">
+        <div id="block-yui_3_17_2_1_1720516738964_3057">
+            <!-- Background image will be applied here -->
+        </div>
+
+        <div class="outer-container">
+            <div class="container new-code">
+                <h1>Professional Cleaning Services in Sydney</h1>
+                <h2>Book Online Instantly or Call 0426-280-899</h2>
+                <div class="sqs-block-form">
+                    <div class="field-list">
+                        <div class="field first-name">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="first-name" placeholder="">
+                        </div>
+                        <div class="field last-name">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" placeholder="">
+                        </div>
+                        <div class="field email">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="">
+                        </div>
+                        <div class="field service">
+                            <label for="service">Choose your service</label>
+                            <select id="service" name="service">
+                                <option value="Studio or 1 Bedroom">Studio or 1 Bedroom</option>
+                                <option value="2 Bedroom">2 Bedroom</option>
+                                <option value="3 Bedroom">3 Bedroom</option>
+                                <option value="4 Bedroom">4 Bedroom</option>
+                                <option value="5 Bedroom">5 Bedroom</option>
+                                <option value="6 Bedroom">6 Bedroom</option>
+                                <option value="7 Bedroom">7 Bedroom</option>
+                                <option value="8 Bedroom">8 Bedroom</option>
+                                <option value="9 Bedroom">9 Bedroom</option>
+                                <option value="10 Bedroom">10 Bedroom</option>
+                                <option value="11 Bedroom">11 Bedroom</option>
+                            </select>
+                        </div>
+                        <div class="field bathroom">
+                            <label for="bathroom">Bathroom</label>
+                            <select id="bathroom" name="bathroom">
+                                <option value="1 Bathroom">1 Bathroom</option>
+                                <option value="2 Bathroom">2 Bathrooms</option>
+                                <option value="3 Bathroom">3 Bathrooms</option>
+                                <option value="4 Bathroom">4 Bathrooms</option>
+                                <option value="5 Bathroom">5 Bathrooms</option>
+                                <option value="6 Bathroom">6 Bathrooms</option>
+                                <option value="7 Bathroom">7 Bathrooms</option>
+                            </select>
+                        </div>
+                        <div class="field frequency">
+                            <label for="frequency">Frequency</label>
+                            <select id="frequency" name="frequency">
+                                <option value="Weekly">Weekly (Save 15%)</option>
+                                <option value="Fortnightly">Fortnightly (Save 10%)</option>
+                                <option value="Monthly">Monthly (Save 5%)</option>
+                                <option value="One-time">One-time service</option>
+                            </select>
+                        </div>
+                        <div class="submit-button">
+                            <a href="#" id="book-now">Book in 60 Seconds! ($130 per Clean)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('book-now').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default link behavior
+                const firstName = encodeURIComponent(document.getElementById('first-name').value);
+                const lastName = encodeURIComponent(document.getElementById('last-name').value);
+                const email = encodeURIComponent(document.getElementById('email').value);
+                const service = encodeURIComponent(document.getElementById('service').value);
+                const bathroom = encodeURIComponent(document.getElementById('bathroom').value);
+                const frequency = encodeURIComponent(document.getElementById('frequency').value);
+
+                const params = new URLSearchParams();
+                params.append('first-name', firstName);
+                params.append('last-name', lastName);
+                params.append('email', email);
+                params.append('service', service);
+                params.append('bathroom', bathroom);
+                params.append('frequency', frequency);
+
+                window.location.href = '/book-now?' + params.toString();
+            });
+        </script>
+    </section>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $(document).ready(function () {
+            // Add 'active' class to the first nav item
+            $('nav ul li a:first').addClass('active');
+
+            // Handle click event for any nav item
+            $('nav ul li a').on('click', function () {
+                // Remove 'active' class from all nav items
+                $('nav ul li a').removeClass('active');
+
+                // Add 'active' class to the clicked nav item
+                $(this).addClass('active');
+            });
+        });
+        // Initially set 'HOME' as active
+        $('.menus').click(function (e) {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Toggle menu visibility
+            $('.menu').show();
+
+            // Toggle the visibility of the menu icon and close button
+            $('.menus').hide();
+            $('.close-btn').show();
+        });
+
+        $('.close-btn').click(function (e) {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Hide the menu
+            $('.menu').hide();
+
+            // Toggle the visibility of the menu icon and close button
+            $('.menus').show();
+            $('.close-btn').hide();
+        });
+
+    });
+
+</script>
+
+
+</html>
